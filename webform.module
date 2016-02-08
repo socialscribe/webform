@@ -3209,6 +3209,13 @@ function webform_client_form_pages($form, &$form_state) {
         $form_state['storage']['page_count']++;
       }
       $form_state['storage']['page_num'] = $page_num;
+      
+      
+      // Set page number for jplayer's javascript to access
+        drupal_add_js(array('jplayer' => array(
+            'pageinfo' => $page_num
+        )), 'setting');
+      
     }
 
     // The form is done if the page number is greater than the page count.
